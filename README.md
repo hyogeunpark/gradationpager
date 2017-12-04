@@ -15,8 +15,10 @@ It is a library to make the background color of the view pager naturally move du
 
 #### * An example project / library of GradationPager
 
-![](assets/.gif)
+![](screenshot/GradationViewPager.gif)
+![](screenshot/GradationViewPagerWithTab.gif)
 <br />
+
 
 ## Usages
 

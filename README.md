@@ -1,8 +1,16 @@
 # GradationPager
 
+[ ![Download](https://api.bintray.com/packages/hyogeunpark/maven/gradationpager/images/download.svg) ](https://bintray.com/hyogeunpark/maven/gradationpager/_latestVersion)
+[![](https://img.shields.io/badge/minSdk-14-blue.svg)](https://developer.android.com/about/versions/android-4.0.html)
+![](https://img.shields.io/badge/language-java-orange.svg)
+[![](https://img.shields.io/badge/language-kotlin-blue.svg)](https://kotlinlang.org/)
+
+
+
+
 ## Introduction
 
-It is a library to make the background color of the view pager naturally move during the swipe. :+1: (min SDK: 14)
+It is a library to make the background color of the view pager naturally move during the swipe. :+1:
 <br />
 
 #### * An example project / library of GradationPager
@@ -17,13 +25,19 @@ Add your buildscript
 #### • maven
 
 ```xml
+<dependency>
+  <groupId>com.hyopark</groupId>
+  <artifactId>gradationpager</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
 
 ```
 
 #### • gradle
 
 ```groovy
-
+compile 'com.hyopark:gradationpager:1.0.0'
 ```
 
 <br />

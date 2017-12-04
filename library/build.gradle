@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply from: rootProject.file('bintray.gradle')
 
 android {
     compileSdkVersion versions.compileSdkVersion
@@ -29,5 +30,3 @@ dependencies {
     implementation libraries.design
     testImplementation 'junit:junit:4.12'
 }
-
-apply from: rootProject.file('bintray.gradle')

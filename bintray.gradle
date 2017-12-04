@@ -1,42 +1,29 @@
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.novoda.bintray-release'
 
 Properties properties = new Properties()
 try {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 } catch (FileNotFoundException ignore) {}
 
-bintray {
-    user = properties.bintrayUser
-    key = properties.bintrayApiKey
-
-    configurations = ['archives'] // When uploading configuration files
-
-    pkg {
-        repo = 'maven' // Repository name (Created in the repository Bintray site)
-        name = ARTIFACT_ID // module name
-        desc = LIBRARY_DESCRIPTION // Optional
-        licenses = ['Apache-2.0']
-
-        vcsUrl = GIT_URL
-        websiteUrl = SITE_URL
-        issueTrackerUrl = ISSUE_URL
-
-        labels = ['aar', 'android', 'example'] // Optional
-        publish = true // [Default: false] Whether version should be auto published after an upload
-        publicDownloadNumbers = true
-
-        githubRepo = REPO // Optional Github repository
-        githubReleaseNotesFile = 'README.md' // Optional Github readme file
-
-        version {
-            name = versions.versionName // The name of your library project
-            desc = LIBRARY_DESCRIPTION // Optional - Version-specific description'
-            released  = new Date() // Optional - Date of the version release. 2 possible values: date in the format of 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ' OR a java.util.Date instance
-            vcsTag = versions.versionName
-        }
-    }
+publish {
+    userOrg = properties.getProperty("bintray.user")
+    groupId = 'com.hyopark'
+    artifactId = 'gradationpager'
+    publishVersion = versions.versionName
+    desc = LIBRARY_DESCRIPTION
+    website = SITE_URL
+    issueTracker = ISSUE_URL
+    repository = GIT_URL
 }
+
+// 동작 안함 확인 필요
+/*apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+Properties properties = new Properties()
+try {
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+} catch (FileNotFoundException ignore) {}
 
 install {
     repositories.mavenInstaller {
@@ -74,19 +61,65 @@ install {
     }
 }
 
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives'] // When uploading configuration files
+
+    pkg {
+        repo = 'maven' // Repository name (Created in the repository Bintray site)
+        name = ARTIFACT_ID // module name
+        userOrg = user
+        desc = LIBRARY_DESCRIPTION // Optional
+        licenses = ['Apache-2.0']
+
+        vcsUrl = GIT_URL
+        websiteUrl = SITE_URL
+        issueTrackerUrl = ISSUE_URL
+
+        labels = ['aar', 'android', 'example'] // Optional
+        publish = true // [Default: false] Whether version should be auto published after an upload
+        publicDownloadNumbers = true
+
+        githubRepo = REPO // Optional Github repository
+        githubReleaseNotesFile = 'README.md' // Optional Github readme file
+
+        version {
+            name = versions.versionName // The name of your library project
+            desc = LIBRARY_DESCRIPTION // Optional - Version-specific description'
+            released  = new Date() // Optional - Date of the version release. 2 possible values: date in the format of 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ' OR a java.util.Date instance
+            vcsTag = versions.versionName
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+    }
+}
+
 // JCenter publish
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+if (project.hasProperty("android")) { // Android libraries
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    task javadoc(type: Javadoc) {
+        options.addBooleanOption('Xdoclint:none', true)
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+} else { // Java libraries
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
 }
 
 artifacts {
     archives sourcesJar
-}
+}*/
 
-task findConventions << {
+/*task findConventions << {
     println project.getConvention()
-}
+}*/
 
 /*
 task javadoc(type: Javadoc) {

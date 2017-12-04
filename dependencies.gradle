@@ -1,0 +1,21 @@
+ext {
+    versions = [
+            'minSdkVersion'    : 15,
+            'compileSdkVersion': 26,
+            'targetSdkVersion' : 26,
+            'versionCode' : 1,
+            'versionName' : '1.0.0',
+            'buildToolsVersion' : '26.0.2',
+
+            'supportLibrary'   : '26.1.0',
+            'kotlin' : '1.1.51',
+            'constraint' : '1.0.2'
+    ]
+
+    libraries = [
+            'appcompatV7' : "com.android.support:appcompat-v7:${versions.supportLibrary}",
+            'design' : "com.android.support:design:${versions.supportLibrary}",
+            "constraint" : "com.android.support.constraint:constraint-layout:${versions.constraint}",
+            "kotlin" : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+    ]
+}

@@ -1,0 +1,114 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+Properties properties = new Properties()
+try {
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+} catch (FileNotFoundException ignore) {}
+
+bintray {
+    user = properties.bintrayUser
+    key = properties.bintrayApiKey
+
+    configurations = ['archives'] // When uploading configuration files
+
+    pkg {
+        repo = 'maven' // Repository name (Created in the repository Bintray site)
+        name = ARTIFACT_ID // module name
+        desc = LIBRARY_DESCRIPTION // Optional
+        licenses = ['Apache-2.0']
+
+        vcsUrl = GIT_URL
+        websiteUrl = SITE_URL
+        issueTrackerUrl = ISSUE_URL
+
+        labels = ['aar', 'android', 'example'] // Optional
+        publish = true // [Default: false] Whether version should be auto published after an upload
+        publicDownloadNumbers = true
+
+        githubRepo = REPO // Optional Github repository
+        githubReleaseNotesFile = 'README.md' // Optional Github readme file
+
+        version {
+            name = versions.versionName // The name of your library project
+            desc = LIBRARY_DESCRIPTION // Optional - Version-specific description'
+            released  = new Date() // Optional - Date of the version release. 2 possible values: date in the format of 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ' OR a java.util.Date instance
+            vcsTag = versions.versionName
+        }
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            packaging 'aar'
+
+            groupId GROUP_ID
+            artifactId ARTIFACT_ID
+            version versions.versionName
+            inceptionYear '2017' // release date
+
+            name ARTIFACT_ID
+            description LIBRARY_DESCRIPTION
+            url SITE_URL
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
+            }
+            developers { // Optional setting
+                developer {
+                    id DEVELOPER_NAME
+                    name DEVELOPER_NAME
+//                    email ''
+                }
+            }
+            scm { // Optional setting
+                url SITE_URL
+                connection GIT_URL
+                developerConnection GIT_URL
+            }
+        }
+    }
+}
+
+// JCenter publish
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
+}
+
+/*
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.source
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+
+    if (JavaVersion.current().isJava8Compatible()) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}*/

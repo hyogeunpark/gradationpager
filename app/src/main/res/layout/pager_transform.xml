@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/transparent">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/transform_icon"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@mipmap/ic_directions_bus_white"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/transform_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="Subway"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/transform_example"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:lineSpacingExtra="5dp"
+        android:text="Subway"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

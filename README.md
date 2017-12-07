@@ -1,7 +1,7 @@
 # GradationPager
 
 [ ![Download](https://api.bintray.com/packages/hyogeunpark/maven/gradationpager/images/download.svg) ](https://bintray.com/hyogeunpark/maven/gradationpager/_latestVersion)
-[![](https://img.shields.io/badge/minSdk-14-blue.svg)](https://developer.android.com/about/versions/android-4.0.html)
+[![](https://img.shields.io/badge/minSdk-15-brightgreen.svg)](https://developer.android.com/about/versions/android-4.0.3.html)
 ![](https://img.shields.io/badge/language-java-orange.svg)
 [![](https://img.shields.io/badge/language-kotlin-blue.svg)](https://kotlinlang.org/)
 

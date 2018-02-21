@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/minSdk-15-brightgreen.svg)](https://developer.android.com/about/versions/android-4.0.3.html)
 ![](https://img.shields.io/badge/language-java-orange.svg)
 [![](https://img.shields.io/badge/language-kotlin-blue.svg)](https://kotlinlang.org/)
-[![](https://img.shields.io/badge/Android%20Arsenal-GradationPager-brightgreen.svg)](https://android-arsenal.com/details/1/6427)
+[![](https://img.shields.io/badge/Android%20Arsenal-GradationPager-brightgreen.svg)](https://android-arsenal.com/details/1/6528)
 
 
 

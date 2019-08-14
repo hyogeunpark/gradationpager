@@ -7,7 +7,6 @@
 [![](https://img.shields.io/badge/Android%20Arsenal-GradationPager-brightgreen.svg)](https://android-arsenal.com/details/1/6528)
 
 
-
 ## Introduction
 
 It is a library to make the background color of the view pager naturally move during the swipe. :+1:

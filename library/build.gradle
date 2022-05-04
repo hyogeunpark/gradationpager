@@ -1,9 +1,8 @@
 apply plugin: 'com.android.library'
-apply from: rootProject.file('bintray.gradle')
+//apply from: rootProject.file('bintray.gradle')
 
 android {
     compileSdkVersion versions.compileSdkVersion
-    buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
         minSdkVersion versions.minSdkVersion
@@ -15,18 +14,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    lintOptions {
-        abortOnError false
-    }
-    dexOptions {
-        preDexLibraries = false
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation libraries.appcompatV7
-    implementation libraries.design
-    testImplementation 'junit:junit:4.12'
+    implementation libraries.appcompat
+    implementation libraries.material
+    testImplementation 'junit:junit:4.13.2'
 }

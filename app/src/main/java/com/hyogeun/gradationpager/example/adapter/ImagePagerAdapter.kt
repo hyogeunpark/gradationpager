@@ -1,6 +1,6 @@
 package com.hyogeun.gradationpager.example.adapter
 
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,24 +22,25 @@ class ImagePagerAdapter: PagerAdapter() {
             "[일반] His friends used every means to put him to flight.\n그를 도주시키려고 그의 친구들이 모든 수단을 썼다.(출처: YBM)"))
     private val mResId:IntArray = intArrayOf(R.mipmap.ic_directions_bus_white, R.mipmap.ic_directions_car_white, R.mipmap.ic_directions_subway_white, R.mipmap.ic_directions_walk_white, R.mipmap.ic_flight_white)
 
-    override fun instantiateItem(container: ViewGroup?, position: Int): Any {
-        val view = LayoutInflater.from(container?.context).inflate(R.layout.pager_transform, null)
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val view = LayoutInflater.from(container.context).inflate(R.layout.pager_transform, container, false)
         val ivIcon:ImageView = view.findViewById(R.id.transform_icon)
         val tvName:TextView = view.findViewById(R.id.transform_name)
         val tvExample:TextView = view.findViewById(R.id.transform_example)
         tvName.text = mTitle[position]
         tvExample.text = mExample[position]
         ivIcon.setImageResource(mResId[position])
-        container?.addView(view)
+        container.addView(view)
         return view
     }
 
-    override fun isViewFromObject(view: View?, `object`: Any?): Boolean = (view == `object`)
+
+    override fun isViewFromObject(view: View, `object`: Any): Boolean = (view == `object`)
 
     override fun getCount(): Int = mResId.size
 
-    override fun destroyItem(container: ViewGroup?, position: Int, `object`: Any?) {
-        container?.removeView(`object` as View)
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
     }
 
     override fun getPageTitle(position: Int): CharSequence {

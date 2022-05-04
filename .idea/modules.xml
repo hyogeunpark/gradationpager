@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GradationPager.iml" filepath="$PROJECT_DIR$/GradationPager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradationpager.iml" filepath="$PROJECT_DIR$/gradationpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/gradationpager.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/gradationpager.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/gradationpager.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/gradationpager.library.iml" />
     </modules>
   </component>
 </project>
